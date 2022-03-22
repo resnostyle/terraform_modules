@@ -7,7 +7,7 @@ resource "cloudflare_record" "mx0" {
   zone_id         = var.zone_id
   name            = "@"
   type            = "MX"
-  value           = "isaac.mx.cloudflare.net"
+  value           = "xisaac.mx.cloudflare.net"
   priority        = "4"
 }
 
