@@ -7,7 +7,7 @@ resource "cloudflare_record" "mx0" {
   zone_id         = var.zone_id
   name            = "@"
   type            = "MX"
-  value           = "xisaac.mx.cloudflare.net"
+  value           = "isaac.mx.cloudflare.net"
   priority        = "4"
 }
 
@@ -72,7 +72,7 @@ resource "cloudflare_firewall_rule" "bots" {
 }
 
 #
-## Block threats less than Medium
+## Block threats greater than Medium
 #
 
 resource "cloudflare_filter" "threats" {
