@@ -3,6 +3,11 @@ variable "zone_id" {
   default = null
 }
 
+variable "account_id" {
+  type    = string
+  default = null
+}
+
 variable "name" {
   type    = string
   default = null
