@@ -1,21 +1,6 @@
 #
 ## Email
 #
-resource "cloudflare_email_routing_catch_all" "example" {
-  zone_id = var.zone_id
-  name    = "email catch all"
-  enabled = true
-
-  matcher {
-    type = "all"
-  }
-
-  action {
-    type  = "forward"
-    value = ["bwp.pearson@gmail.com"]
-  }
-}
-
 resource "cloudflare_record" "mx0" {
   allow_overwrite = true
   zone_id         = var.zone_id
@@ -52,5 +37,6 @@ resource "cloudflare_record" "txt" {
 }
 
 module "firewall" {
-  source = "../firewall"
+  source  = "../firewall"
+  zone_id = var.zone_id
 }

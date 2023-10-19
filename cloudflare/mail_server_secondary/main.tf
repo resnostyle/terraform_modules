@@ -28,5 +28,6 @@ resource "cloudflare_record" "mx85" {
   priority        = "85"
 }
 module "firewall" {
-  source = "../firewall"
+  source  = "../firewall"
+  zone_id = var.zone_id
 }
