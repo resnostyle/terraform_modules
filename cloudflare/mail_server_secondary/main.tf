@@ -43,8 +43,6 @@ resource "cloudflare_record" "mx85" {
   priority        = "85"
 }
 
-module ""
-
 resource "cloudflare_record" "txt" {
   allow_overwrite = true
   zone_id         = var.zone_id
