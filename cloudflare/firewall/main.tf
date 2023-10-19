@@ -1,7 +1,7 @@
 #
 ## Email
 #
-resource "cloudflare_email_routing_catch_all" "example" {
+resource "cloudflare_email_routing_catch_all" "forward" {
   zone_id = var.zone_id
   name    = "email catch all"
   enabled = true
