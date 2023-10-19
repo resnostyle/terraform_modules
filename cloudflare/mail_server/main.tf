@@ -52,5 +52,5 @@ resource "cloudflare_record" "txt" {
 }
 
 module "firewall" {
-  source = "./firewall"
+  source = "../firewall"
 }
