@@ -1,0 +1,26 @@
+name: Create New Tag
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  create-tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set tag version
+        id: set_version
+        run: echo "::set-output name=tag::v$(date +'%Y%m%d%H%M%S')"
+
+      - name: Create Git Tag
+        run: git tag ${{ steps.set_version.outputs.tag }}
+        if: success()
+
+      - name: Push Tag to Repository
+        run: git push origin ${{ steps.set_version.outputs.tag }}
+        if: success()
