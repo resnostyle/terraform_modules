@@ -1,22 +1,26 @@
-name: Generate tag
+name: Create New Tag
 
 on:
   push:
     branches:
-      - wf
+      - wf  # Replace with the name of your main branch, e.g., 'master' or 'main'
 
 jobs:
-  build:
-    name: Generate tag
+  create-tag:
     runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@master
-        with:
-          fetch-depth: '0'
 
-      - name: Bump version and push tag
-        uses: ChloePlanet/github-tag-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: true
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set tag version
+        id: set_version
+        run: echo "::set-output name=tag::v$(date +'%Y%m%d%H%M%S')"
+
+      - name: Create Git Tag
+        run: git tag ${{ steps.set_version.outputs.tag }}
+        if: success()
+
+      - name: Push Tag to Repository
+        run: git push origin ${{ steps.set_version.outputs.tag }}
+        if: success()
