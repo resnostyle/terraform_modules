@@ -3,7 +3,7 @@ name: Create New Tag
 on:
   push:
     branches:
-      - wf  # Replace with the name of your main branch, e.g., 'master' or 'main'
+      - 'wf'  # Replace with the name of your main branch, e.g., 'master' or 'main'
 
 jobs:
   create-tag:
