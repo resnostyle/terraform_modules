@@ -3,7 +3,7 @@ name: Generate tag
 on:
   push:
     branches:
-      - master
+      - wf
 
 jobs:
   build:
