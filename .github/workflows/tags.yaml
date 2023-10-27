@@ -22,7 +22,7 @@ jobs:
 
           else
           #  echo "::set-output name=tag::rc$(date +'%Y%m%d%H%M%S')"
-            echo "::set-output name=tag::rc$(cat VERION.txt')$short_sha"
+            echo "::set-output name=tag::rc$(cat VERION.txt')${SHORT_SHA}"
           fi
 
       - name: Create Git Tag
