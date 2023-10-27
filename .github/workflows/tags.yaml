@@ -18,11 +18,10 @@ jobs:
         run: |
           if [ "${GITHUB_REF##*/}" == "main" ]; then
           #echo "::set-output name=tag::$(date +'%Y%m%d%H%M%S')"
-            echo "::set-output name=tag::$(cat VERION.txt')"
-
+            echo "::set-output name=tag::$(cat VERSION.txt')"
           else
           #  echo "::set-output name=tag::rc$(date +'%Y%m%d%H%M%S')"
-            echo "::set-output name=tag::rc$(cat VERION.txt')${SHORT_SHA}"
+            echo "::set-output name=tag::rc$(cat VERSION.txt')${SHORT_SHA}"
           fi
 
       - name: Create Git Tag
