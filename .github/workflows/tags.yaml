@@ -3,7 +3,7 @@ name: Create New Tag
 on:
   push:
     branches:
-      - 'main'
+      - '*'
 
 jobs:
   create-tag:
@@ -15,7 +15,14 @@ jobs:
 
       - name: Set tag version
         id: set_version
-        run: echo "::set-output name=tag::v$(date +'%Y%m%d%H%M%S')"
+        run: |
+          if [ "${GITHUB_REF##*/}" == "main" ]; then
+          #echo "::set-output name=tag::$(date +'%Y%m%d%H%M%S')"
+            echo "::set-output name=tag::$(cat VERSION.txt')"
+          else
+          #  echo "::set-output name=tag::rc$(date +'%Y%m%d%H%M%S')"
+            echo "::set-output name=tag::rc$(cat VERSION.txt${SHORT_SHA})'"
+          fi
 
       - name: Create Git Tag
         run: git tag ${{ steps.set_version.outputs.tag }}
