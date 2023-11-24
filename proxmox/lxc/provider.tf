@@ -16,10 +16,6 @@ data "vault_generic_secret" "proxmox_creds" {
   path = "secret/terraform/proxmox"
 }
 
-#data "vault_generic_secret" "common_creds" {
-#  path = "secret/common/user_profile/bryan"
-#}
-
 data "sops_file" "host_secrets" {
   source_file = "../vault.sops.yaml"
 }

@@ -30,7 +30,6 @@ resource "proxmox_virtual_environment_container" "lxc" {
       keys = [
         data.http.github_ssh_key.body
       ]
-      password = random_password.container_password.result
     }
   }
   cpu {
