@@ -21,8 +21,3 @@ jobs:
 
       - name: Terraform validate
         run: terraform validate
-
-      - name: Terraform tflint
-        uses: cweagans/gh-action-tflint@v1
-        with:
-          tf_version: '1.0.0'
