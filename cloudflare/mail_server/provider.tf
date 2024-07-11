@@ -1,10 +1,8 @@
-# Configure the Cloudflare provider.
-# You may optionally use version directive to prevent breaking changes occurring unannounced.
 terraform {
   required_providers {
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = "4.37.0"
+      version = ">=4.0.0"
     }
     namecheap = {
       source  = "namecheap/namecheap"
